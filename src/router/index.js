@@ -4,33 +4,41 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import('@/views/home')
-  },
-  {
-    path: '/home/list',
-    component: () => import('@/views/homeList')
-  },
-  {
-    path: '/home/news',
-    component: () => import('@/views/homeNews')
-  },
-  {
-    path: '/home/profile',
-    component: () => import('@/views/profile')
-  },
-  {
     path: '/login',
     component: () => import('@/views/login')
   },
   {
-    path: '/city',
-    component: () => import('@/views/city')
+    path: '/',
+    redirect: '/',
+    component: () => import('@/views/Layout'),
+    children: [
+      {
+        path: '/',
+        component: () => import('@/views/home')
+      },
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/home')
+      },
+      {
+        path: '/home/list',
+        component: () => import('@/views/homeList')
+      },
+      {
+        path: '/home/news',
+        component: () => import('@/views/homeNews')
+      },
+      {
+        path: '/home/profile',
+        component: () => import('@/views/profile')
+      },
+
+      {
+        path: '/city',
+        component: () => import('@/views/city')
+      }
+    ]
   },
   {
     path: '/favorite',

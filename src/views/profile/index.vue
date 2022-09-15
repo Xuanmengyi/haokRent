@@ -23,7 +23,7 @@
             type="info"
             size="small"
             color="#21b97a"
-            class="loginBtn"
+            :class="['loginBtn', { logoutCss: isLogin }]"
             :round="isLogin ? true : false"
             @click="loginOrout"
             >{{ isLogin ? '退出' : '去登录' }}</van-button
@@ -79,8 +79,13 @@ export default {
       }
     },
     async getUserInfo() {
-      const { data } = await getUserInfoAPI()
-      this.nickname = data.body.nickname
+      try {
+        if (!this.isLogin) return
+        const { data } = await getUserInfoAPI()
+        this.nickname = data.body.nickname
+      } catch (error) {
+        throw new Error(error)
+      }
     }
   }
 }
@@ -94,8 +99,10 @@ export default {
   .bgImg {
     width: 100%;
   }
+  .logoutCss {
+    margin-top: -10px;
+  }
   .editUserInfo {
-    margin-top: -35px;
     font-size: 12px;
     color: #999;
   }
@@ -124,7 +131,6 @@ export default {
       padding: 0 15px;
       text-align: center;
       position: relative;
-      top: -20px;
     }
     .my_image {
       position: relative;
