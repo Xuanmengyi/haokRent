@@ -1,0 +1,6 @@
+export * from './area'
+export * from './home'
+export * from './login'
+export * from './search'
+export * from './house'
+export * from './user'
