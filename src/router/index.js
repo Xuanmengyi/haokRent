@@ -43,6 +43,10 @@ const routes = [
   {
     path: '/favorite',
     component: () => import('@/views/favorite')
+  },
+  {
+    path: '/rent/add',
+    component: () => import('@/views/addRent')
   }
 ]
 

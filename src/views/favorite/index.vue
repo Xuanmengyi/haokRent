@@ -3,8 +3,6 @@
     <van-nav-bar
       title="收藏列表"
       left-arrow
-      offset="100"
-      :immediate-check="false"
       @click-left="onClickLeft"
       class="favoriteList"
     />

@@ -28,7 +28,7 @@
         ></template>
         <template #text>地图找房</template>
       </van-grid-item>
-      <van-grid-item>
+      <van-grid-item to="/rent/add">
         <template #icon
           ><div class="iconDiv">
             <van-icon name="shop-collect-o" /></div
